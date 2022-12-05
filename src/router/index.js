@@ -5,12 +5,24 @@ import WalletsPage from "../components/WalletsPage"
 import BundlesPage from "../components/BundlesPage"
 import ReportingPage from "../components/ReportingPage"
 import CommunityPage from "../components/CommunityPage"
+import SummaryTab from "../components/SummaryTab"
+import TableTab from "../components/TableTab"
+import ChartsTab from "../components/ChartsTab"
+import AnalysisTab from "../components/AnalysisTab"
+import ReportingTab from "../components/ReportingTab"
 
 const routes = [
     {
         path: "/overview",
         name: "OverViewPage",
-        component: OverViewPage
+        component: OverViewPage,
+        children: [
+            {path: "summary", component: SummaryTab},
+            {path: "table", component: TableTab},
+            {path: "charts", component: ChartsTab},
+            {path: "reporting", component: ReportingTab},
+            {path: "analysis", component: AnalysisTab},
+        ]
     },
     {
         path: "/buysell",

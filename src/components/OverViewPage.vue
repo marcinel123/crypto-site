@@ -1,7 +1,7 @@
 <template>
   <Suspense>
     <template #default>
-     <CoinsListPage/>
+     <MainPage/>
     </template>
     <template #fallback>
       <LoaderPage />
@@ -11,12 +11,12 @@
 
 <script>
 import LoaderPage from "./LoaderPage.vue";
-import CoinsListPage from "./CoinsListPage.vue";
+import MainPage from "./MainPage.vue";
 export default {
   name: "OverViewPage",
   components: {
     LoaderPage,
-    CoinsListPage
+    MainPage
   },
 
   

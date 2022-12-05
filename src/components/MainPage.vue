@@ -34,28 +34,68 @@
           <h3>Summary</h3>
           <img src="../images/dots.png" alt="dots icon" />
         </div>
+        <canvas id="myChart"></canvas>
       </div>
+    </section>
+    <section class="tabs">
+      <nav class="tabs_nav">
+        <ul class="tabs_menu">
+          <li>
+            <router-link to="/overview/summary">Summary</router-link>
+          </li>
+          <li><router-link to="/overview/table">Table</router-link></li>
+          <li><router-link to="/overview/charts">Charts</router-link></li>
+          <li><router-link to="/overview/reporting">Reporting</router-link></li>
+          <li><router-link to="/overview/analysis">Analysis</router-link></li>
+        </ul>
+      </nav>
+      <router-view />
     </section>
   </main>
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import Chart from "chart.js/auto";
+import { onMounted } from "@vue/runtime-core";
 export default {
   async setup() {
-    const coins = ref([]);
+    const data = [];
 
-    let key = "37e2756b-01f9-4d60-8533-bad3121fba02";
-    let url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map",
-      qString = "?CMC_PRO_API_KEY=" + key + "&limit=20";
+    onMounted(() => {
+      // creating data for chart
+      const newData = () => {
+        let i;
 
-    const res = await fetch(url + qString);
-    const parsedRes = await res.json();
+        for (i = 0; i < 31; i++) {
+          let day = {
+            day: i + 1,
+            value: Math.floor(Math.random() * 10000),
+          };
+          data.push(day);
+        }
+      };
 
-    coins.value = parsedRes.data;
-    console.log(coins.value);
+      newData();
 
-    return { coins };
+      const chart1 = document.getElementById("myChart");
+      // creating new chart
+      const newChart = new Chart(chart1, {
+        type: "line",
+        data: {
+          labels: data.map((row) => row.day),
+          datasets: [
+            {
+              label: "",
+              data: data.map((row) => row.value),
+              tension: 0.4,
+            },
+          ],
+        },
+      });
+      newChart;
+    });
+
+    return {};
   },
 };
 </script>
@@ -153,7 +193,7 @@ export default {
 }
 
 .btn_section button {
-    border: none;
+  border: none;
 }
 
 .btn_invest {
@@ -168,7 +208,7 @@ export default {
 }
 
 .btn_report {
-    background: white;
+  background: white;
   color: #7445fb;
   width: 112px;
   height: 40px;
@@ -185,5 +225,47 @@ export default {
   width: 499px;
   height: 336px;
   padding: 15px 20px;
+}
+
+.tabs {
+  margin-top: 25px;
+  box-sizing: border-box;
+  width: 1040px;
+  background: #f7f7f9;
+  padding: 35px 32px;
+  border: 1px solid #f7f7f9;
+  border-radius: 8px;
+}
+
+.tabs_nav {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #EBEBF3;
+  padding-bottom: 20px;
+}
+
+.tabs_menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tabs_menu a {
+  color: #9896a1;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 0;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.tabs_menu a:hover, 
+.tabs_menu a.router-link-active, 
+.tabs_menu a.router-link-exact-active {
+padding-bottom: 15px;
+border-bottom: 4px solid #7445FB;
 }
 </style>
