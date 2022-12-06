@@ -41,12 +41,12 @@
       <nav class="tabs_nav">
         <ul class="tabs_menu">
           <li>
-            <router-link to="/overview/summary">Summary</router-link>
+            <router-link @click="store.changeTab('summary')" to="/overview/summary">Summary</router-link>
           </li>
-          <li><router-link to="/overview/table">Table</router-link></li>
-          <li><router-link to="/overview/charts">Charts</router-link></li>
-          <li><router-link to="/overview/reporting">Reporting</router-link></li>
-          <li><router-link to="/overview/analysis">Analysis</router-link></li>
+          <li><router-link @click="store.changeTab('table')" to="/overview/table">Table</router-link></li>
+          <li><router-link @click="store.changeTab('charts')" to="/overview/charts">Charts</router-link></li>
+          <li><router-link @click="store.changeTab('reporting')" to="/overview/reporting">Reporting</router-link></li>
+          <li><router-link @click="store.changeTab('analysis')" to="/overview/analysis">Analysis</router-link></li>
         </ul>
       </nav>
       <router-view />
@@ -56,13 +56,15 @@
 
 <script>
 import Chart from "chart.js/auto";
+import { useTabStore } from "@/store";
 import { onMounted } from "@vue/runtime-core";
 export default {
   async setup() {
     const data = [];
+    const store = useTabStore()
 
     onMounted(() => {
-      // creating data for chart
+      // just creating data for chart
       const newData = () => {
         let i;
 
@@ -95,7 +97,7 @@ export default {
       newChart;
     });
 
-    return {};
+    return {store};
   },
 };
 </script>

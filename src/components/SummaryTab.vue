@@ -11,7 +11,7 @@
       </div>
       <div class="coin_change">
         <h5>Change</h5>
-        <p>{{coin.quote.USD.percent_change_30d}}</p>
+        <p>{{ coin.quote.USD.percent_change_30d }}</p>
       </div>
     </div>
   </div>
@@ -19,6 +19,7 @@
 
 <script>
 import { ref } from "@vue/reactivity";
+
 export default {
   async setup() {
     const coins = ref([]);
@@ -34,7 +35,7 @@ export default {
     coins.value = parsedRes.data;
     console.log(coins.value);
 
-    console.log(coins.value)
+    console.log(coins.value);
 
     return { coins };
   },
@@ -46,7 +47,6 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
-
 </style>
