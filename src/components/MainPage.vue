@@ -34,7 +34,17 @@
           <h3>Summary</h3>
           <img src="../images/dots.png" alt="dots icon" />
         </div>
-        <canvas id="myChart"></canvas>
+        <div class="chart">
+          <canvas  id="myChart"></canvas>
+        </div>
+        <div class="inputs">
+          <label for="this_month">
+            <input class="input_radio" id="this_month" type="radio"> This month
+          </label>
+          <label for="last_month">
+            <input class="input_radio" id="last_month" type="radio"> Last month
+          </label>
+        </div>
       </div>
     </section>
     <section class="tabs">
@@ -83,6 +93,12 @@ export default {
       // creating new chart
       const newChart = new Chart(chart1, {
         type: "line",
+        options: {
+            plugins: {
+          legend: {
+            display: false,
+          },
+        }},
         data: {
           labels: data.map((row) => row.day),
           datasets: [
@@ -136,7 +152,6 @@ export default {
 .first_section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-top: 35px;
 }
 
@@ -150,12 +165,20 @@ export default {
   width: 509px;
   height: 336px;
   padding: 15px 20px;
+  margin-right: 32px;
 }
 
 .title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.summary .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px
 }
 
 .title button {
@@ -226,7 +249,8 @@ export default {
   border-radius: 8px;
   width: 499px;
   height: 336px;
-  padding: 15px 20px;
+  padding-top: 15px;
+  padding-bottom: 0;
 }
 
 .tabs {
@@ -244,6 +268,7 @@ export default {
   display: flex;
   border-bottom: 1px solid #EBEBF3;
   padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .tabs_menu {
@@ -269,5 +294,34 @@ export default {
 .tabs_menu a.router-link-exact-active {
 padding-bottom: 15px;
 border-bottom: 4px solid #7445FB;
+}
+
+.chart {
+  display: flex;
+  justify-content:center;
+  height: 220px;
+  width: 498px;
+  border-bottom: 1px solid #EBEBF3;
+}
+.inputs {
+  margin-top: 4px;
+}
+
+.inputs label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9896A1;
+}
+
+.input_radio {
+  background: #D5D5D6;
+  border-radius: 50%;
+  width:8px;
+  height: 8px;
+  appearance: none;
+}
+.input_radio:checked {
+  background: #7445FB;
+ 
 }
 </style>

@@ -1,26 +1,15 @@
 <template>
   <div v-for="coin in coins" :key="coin.id">
-    <div class="single_coin">
-      <div class="coin_title">
-        <h5>{{ coin.symbol }}</h5>
-        <p>{{ coin.name }}</p>
-      </div>
-      <div class="coin_price">
-        <h5>Price</h5>
-        <p>{{ coin.quote.USD.price }}</p>
-      </div>
-      <div class="coin_change">
-        <h5>Change</h5>
-        <p>{{ coin.quote.USD.percent_change_30d }}</p>
-      </div>
-    </div>
+    <SingleCoin :coin="coin"/>
   </div>
 </template>
 
 <script>
+import SingleCoin from "../components/SingleCoin.vue"
 import { ref } from "@vue/reactivity";
 
 export default {
+  components: {SingleCoin},
   async setup() {
     const coins = ref([]);
 
@@ -35,18 +24,11 @@ export default {
     coins.value = parsedRes.data;
     console.log(coins.value);
 
-    console.log(coins.value);
-
     return { coins };
   },
 };
 </script>
 
 <style scoped>
-.single_coin {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
+
 </style>
