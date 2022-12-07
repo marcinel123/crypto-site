@@ -22,7 +22,6 @@ export default {
     const parsedRes = await res.json();
 
     coins.value = parsedRes.data;
-    console.log(coins.value);
 
     return { coins };
   },

@@ -11,7 +11,7 @@
 
 <script>
 import LoaderPage from "./LoaderPage.vue";
-import MainPage from "./MainPage.vue";
+import MainPage from "./MainPage/MainPage.vue";
 export default {
   name: "OverViewPage",
   components: {

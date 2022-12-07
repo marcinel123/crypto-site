@@ -1,6 +1,6 @@
 <template>
   <div class="single_coin">
-    <img :src="`../images/logo/${coin.id}.png`" />
+    <img :src="require(`../images/logo/${coin.id}.png`)" :alt="`${coin.symbol}`" />
     <div class="coin_title">
       <h5>{{ coin.symbol }}</h5>
       <p>{{ coin.name }}</p>
@@ -33,19 +33,23 @@
     <div class="chart">
       <canvas :id="`${coin.name}`"></canvas>
     </div>
+    <div class="coin_buttons">
+        <button class="sell">Sell</button>
+        <button class="buy">Buy</button>
+    </div>
   </div>
 </template>
 
 <script>
 import Chart from "chart.js/auto";
-import { onMounted } from "@vue/runtime-core";
+import { onMounted} from "@vue/runtime-core";
 export default {
   props: ["coin"],
 
   setup(props) {
-    console.log(props.coin.id);
     console.log(props.coin.quote.USD);
     const data = [];
+   
 
     onMounted(() => {
       // just creating data for chart
@@ -55,7 +59,7 @@ export default {
         for (i = 0; i < 31; i++) {
           let day = {
             day: i + 1,
-            value: Math.floor(Math.random() * 10000),
+            value: Math.floor(Math.random() * 10),
           };
           data.push(day);
         }
@@ -121,7 +125,7 @@ export default {
 .coin_change {
   display: flex;
   flex-direction: column;
-  margin-right: 50px;
+  margin-right: 60px;
 }
 .coin_title h5,
 .coin_price h5,
@@ -161,7 +165,38 @@ export default {
 }
 
 .chart {
-  height: 32px;
-  width: 148px;
+  height: 65px;
+  width: 180px;
+  margin: 0 20px;
+  border: none;
 }
+
+.coin_buttons {
+    width: 120px;
+    display: flex;
+    margin-left: 60px;
+}
+
+.coin_buttons button {
+    margin-left:10px;
+    width: 55px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.coin_buttons .sell {
+    background: white;
+    color: #7445FB;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #EBEBF3
+}
+.coin_buttons .buy {
+    background: #7445FB;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+}
+
 </style>
