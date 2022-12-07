@@ -4,10 +4,11 @@
       <input class="search" type="search" placeholder="Search" />
       <div class="buttons">
         <button class="btn">
+          <span></span>
           <img src="../../images/bell.png" alt="icon bell" />
         </button>
         <button class="btn">
-          <img class="btn" src="../../images/menu.png" alt="icon menu" />
+          <img class="btn menu" src="../../images/menu.png" alt="icon menu" />
         </button>
       </div>
     </header>
@@ -60,10 +61,27 @@ export default {
   background-image: none;
 }
 
+.buttons button {
+  position: relative;
+}
+
 .btn {
   background: #f7f7f9;
   height: 48px;
   border: 1px solid #f7f7f9;
   border-radius: 8px;
+}
+.btn span {
+  border: 2px solid white;
+  position: absolute;
+  bottom: 38px;
+  left: 38px;
+  height: 12px;
+  width: 12px;
+  background: #EA4D4D;
+  border-radius: 50%;
+}
+.menu {
+  height: 45px;
 }
 </style>

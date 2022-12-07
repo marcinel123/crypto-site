@@ -1,6 +1,9 @@
 <template>
   <div class="single_coin">
-    <img :src="require(`../images/logo/${coin.id}.png`)" :alt="`${coin.symbol}`" />
+    <img
+      :src="require(`../images/logo/${coin.id}.png`)"
+      :alt="`${coin.symbol}`"
+    />
     <div class="coin_title">
       <h5>{{ coin.symbol }}</h5>
       <p>{{ coin.name }}</p>
@@ -34,29 +37,28 @@
       <canvas :id="`${coin.name}`"></canvas>
     </div>
     <div class="coin_buttons">
-        <button class="sell">Sell</button>
-        <button class="buy">Buy</button>
+      <button class="sell">Sell</button>
+      <button class="buy">Buy</button>
     </div>
   </div>
 </template>
 
 <script>
 import Chart from "chart.js/auto";
-import { onMounted} from "@vue/runtime-core";
+import { onMounted } from "@vue/runtime-core";
 export default {
   props: ["coin"],
 
   setup(props) {
-    console.log(props.coin.quote.USD);
+    console.log(props.coin.quote.USD.percent_change_30d);
     const data = [];
-   
 
     onMounted(() => {
       // just creating data for chart
       const newData = () => {
         let i;
 
-        for (i = 0; i < 31; i++) {
+        for (i = 0; i < 7; i++) {
           let day = {
             day: i + 1,
             value: Math.floor(Math.random() * 10),
@@ -72,16 +74,44 @@ export default {
       const newChart2 = new Chart(chart2, {
         type: "line",
         options: {
-            plugins: {
-          legend: {
-            display: false,
+          elements: {
+                    point:{
+                        radius: 0
+                    }
+                },
+          scales: {
+            x: {
+              ticks: {
+                display: false,
+              },
+              grid: {
+                display: false,
+              },
+            },
+            y: {
+              ticks: {
+                display: false,
+              },
+              grid: {
+                display: false,
+              },
+            },
           },
-        }},
+          plugins: {
+            tooltip: {
+              display: false,
+            },
+            legend: {
+              display: false,
+            },
+          },
+        },
         data: {
           labels: data.map((row) => row.day),
           datasets: [
             {
               label: "",
+              borderColor: "red",
               data: data.map((row) => row.value),
               tension: 0.8,
             },
@@ -89,8 +119,9 @@ export default {
         },
       });
       newChart2;
+      console.log(newChart2.options.color)
     });
-
+    
     return {};
   },
 };
@@ -172,31 +203,33 @@ export default {
 }
 
 .coin_buttons {
-    width: 120px;
-    display: flex;
-    margin-left: 60px;
+  width: 120px;
+  display: flex;
+  margin-left: 60px;
 }
-
 .coin_buttons button {
-    margin-left:10px;
-    width: 55px;
-    height: 40px;
-    border-radius: 4px;
+  margin-left: 10px;
+  width: 55px;
+  height: 40px;
+  border-radius: 4px;
 }
 
+.coin_buttons button:hover {
+  background: rgb(208, 85, 85);
+  border: 2px solid black;
+}
 .coin_buttons .sell {
-    background: white;
-    color: #7445FB;
-    font-size: 14px;
-    font-weight: 600;
-    border: 1px solid #EBEBF3
+  background: white;
+  color: #7445fb;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #ebebf3;
 }
 .coin_buttons .buy {
-    background: #7445FB;
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
+  background: #7445fb;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
 }
-
 </style>

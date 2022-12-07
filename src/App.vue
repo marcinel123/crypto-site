@@ -9,7 +9,6 @@
       <router-link class="link overview" to="/overview">
         <img src="./images/Icon.svg" alt="icon" />
         Overview
-        <!-- <img class="message_info" src="./images/messages_logo.png" alt="messages"> -->
       </router-link>
 
       <router-link class="link" to="/buysell">
@@ -101,13 +100,11 @@ export default {
   font-weight: 600;
   color: hsla(255, 75%, 6%, 0.4);
 }
-
 .link img {
   width: 21px;
   height: 21px;
   margin: 15px;
 }
-
 .overview:hover,
 .overview.router-link-active,
 .overview.router-link-exact-active {
@@ -121,7 +118,6 @@ img.message_info {
   height: 20px;
   margin-left: 90px;
 }
-
 .link:hover,
 .link.router-link-active,
 .link.router-link-exact-active {
@@ -132,7 +128,6 @@ img.message_info {
   color: black;
   border-radius: 4px;
 }
-
 .logo {
   display: flex;
   align-items: center;
@@ -148,7 +143,7 @@ img.message_info {
 }
 .navigation {
   width: 264px;
-  height: 900px;
+  height: 2000px;
   background: #f7f7f9;
   display: flex;
   flex-direction: column;
@@ -200,7 +195,7 @@ p {
   margin: 0;
 }
 .user_profile {
-  margin: 30px 0;
+  margin-top: 100px;
   width: 250px;
   background: #f7f7f9;
   display: flex;

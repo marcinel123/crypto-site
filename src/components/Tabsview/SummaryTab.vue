@@ -1,15 +1,15 @@
 <template>
   <div v-for="coin in coins" :key="coin.id">
-    <SingleCoin :coin="coin"/>
+    <SingleCoin :coin="coin" />
   </div>
 </template>
 
 <script>
-import SingleCoin from "../components/SingleCoin.vue"
+import SingleCoin from "../SingleCoin.vue";
 import { ref } from "@vue/reactivity";
 
 export default {
-  components: {SingleCoin},
+  components: { SingleCoin },
   async setup() {
     const coins = ref([]);
 
@@ -28,6 +28,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

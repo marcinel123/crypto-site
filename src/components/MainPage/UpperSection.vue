@@ -94,7 +94,6 @@ export default {
   align-items: center;
   margin-top: 35px;
 }
-
 .balance {
   box-sizing: border-box;
   display: flex;
@@ -107,35 +106,29 @@ export default {
   padding: 15px 20px;
   margin-right: 32px;
 }
-
 .title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .summary .title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
 }
-
 .title button {
   border: none;
   background: #f7f7f9;
 }
-
 .title h3 {
   font-size: 20px;
 }
-
 .balance h4 {
   margin: 5px 0;
   color: black;
   font-size: 56px;
 }
-
 .change {
   width: 160px;
   height: 24px;
@@ -145,22 +138,18 @@ export default {
   font-size: 18px;
   color: #2dc78f;
 }
-
 .change img {
   height: 18px;
   width: 18px;
 }
-
 .btn_section {
   margin-top: 60px;
   display: flex;
   align-items: center;
 }
-
 .btn_section button {
   border: none;
 }
-
 .btn_invest {
   background: #7445fb;
   color: white;
@@ -171,7 +160,10 @@ export default {
   font-size: 14px;
   font-weight: 600;
 }
-
+.btn_invest:hover{
+  background: rgb(208, 85, 85);
+  border: 2px solid black;
+}
 .btn_report {
   background: white;
   color: #7445fb;
@@ -181,7 +173,10 @@ export default {
   font-size: 14px;
   font-weight: 600;
 }
-
+.btn_report:hover{
+  background: rgb(208, 85, 85);
+  border: 2px solid black;
+}
 .summary {
   box-sizing: border-box;
   background: #f7f7f9;
@@ -214,7 +209,6 @@ export default {
   color: #9896a1;
   margin-left: 10px;
 }
-
 .input {
   margin-right: 8px;
   background: #d5d5d6;

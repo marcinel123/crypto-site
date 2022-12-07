@@ -5,11 +5,11 @@ import WalletsPage from "../components/WalletsPage"
 import BundlesPage from "../components/BundlesPage"
 import ReportingPage from "../components/ReportingPage"
 import CommunityPage from "../components/CommunityPage"
-import SummaryTab from "../components/SummaryTab"
-import TableTab from "../components/TableTab"
-import ChartsTab from "../components/ChartsTab"
-import AnalysisTab from "../components/AnalysisTab"
-import ReportingTab from "../components/ReportingTab"
+import SummaryTab from "../components/Tabsview/SummaryTab"
+import TableTab from "../components/Tabsview/TableTab"
+import ChartsTab from "../components/Tabsview/ChartsTab"
+import AnalysisTab from "../components/Tabsview/AnalysisTab"
+import ReportingTab from "../components/Tabsview/ReportingTab"
 
 const routes = [
     {
