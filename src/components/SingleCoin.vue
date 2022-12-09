@@ -232,4 +232,16 @@ export default {
   font-weight: 600;
   border: none;
 }
+@media (max-width: 480px) {
+  .single_coin {
+  box-sizing: border-box;
+  padding-left: 20px;
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+}
+}
 </style>

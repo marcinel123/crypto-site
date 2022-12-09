@@ -7,7 +7,7 @@
           <img src="../../images/dots.png" alt="dots icon" />
         </button>
       </div>
-      <h4>$21 432.23</h4>
+      <h4><span>$</span>21 432.23</h4>
       <div class="change">
         <img src="../../images/arrow.png" alt="arrow" />
         <p>12% vs last month</p>
@@ -65,7 +65,34 @@ export default {
       const newChart = new Chart(chart1, {
         type: "line",
         options: {
+          elements: {
+                    point:{
+                        radius: 0
+                    }
+                },
+          scales: {
+            x: {
+              ticks: {
+                display: false,
+              },
+              grid: {
+                display: false,
+              },
+            },
+            y: {
+              ticks: {
+                display: false,
+              },
+              grid: {
+                display: true,
+                borderDash: [20, 20],
+              },
+            },
+          },
           plugins: {
+            tooltip: {
+              display: false,
+            },
             legend: {
               display: false,
             },
@@ -78,6 +105,7 @@ export default {
               label: "",
               data: data.map((row) => row.value),
               tension: 0.4,
+              backgroundColor: "linear-gradient(180deg, rgba(116, 69, 251, 0.16) 28.38%, rgba(116, 69, 251, 0) 100%)",
             },
           ],
         },
@@ -126,9 +154,15 @@ export default {
 }
 .balance h4 {
   margin: 5px 0;
-  color: black;
+  color: #0A041C;
   font-size: 56px;
 }
+.balance span {
+  color: #9896A1;
+  font-size: 56px;
+}
+
+
 .change {
   width: 160px;
   height: 24px;
@@ -219,5 +253,33 @@ export default {
 }
 .input:checked {
   background: #7445fb;
+}
+@media (max-width: 480px) {
+  .first_section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+.balance {
+  margin: 0;
+  order: 0;
+  width: 100%;
+  height: 300px;
+  padding: 15px 20px;
+}
+.summary {
+  order: 1;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.chart {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  border-bottom: 1px solid #ebebf3;
+}
+
 }
 </style>

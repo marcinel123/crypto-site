@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style scoped>
+
 .tabs {
   margin-top: 25px;
   box-sizing: border-box;
@@ -90,7 +91,25 @@ export default {
 .tabs_menu a:hover,
 .tabs_menu a.router-link-active,
 .tabs_menu a.router-link-exact-active {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #0a041c;
   padding-bottom: 15px;
   border-bottom: 4px solid #7445fb;
+}
+
+@media (max-width: 480px) {
+  .tabs {
+  margin: 0;
+  padding: 0;
+  width: 430px;
+  height: 900px;
+  background: #f7f7f9;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: none;
+  border-radius: none;
+}
 }
 </style>

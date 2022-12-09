@@ -77,6 +77,7 @@ export default {
 <style scoped>
 .container {
   width: 1440px;
+  height: 900px;
   font-family: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: row;
@@ -113,11 +114,6 @@ export default {
   background-repeat: no-repeat;
   background-position: 95% 50%;
 }
-img.message_info {
-  width: 28px;
-  height: 20px;
-  margin-left: 90px;
-}
 .link:hover,
 .link.router-link-active,
 .link.router-link-exact-active {
@@ -140,10 +136,12 @@ img.message_info {
 }
 .logo h3 {
   font-size: 24px;
+  color: #0A041C;
+  font-weight: 600;
 }
 .navigation {
   width: 264px;
-  height: 2000px;
+  height: 900px;
   background: #f7f7f9;
   display: flex;
   flex-direction: column;
@@ -195,21 +193,62 @@ p {
   margin: 0;
 }
 .user_profile {
-  margin-top: 100px;
+  margin-left:15px;
+  margin-top: 245px;
   width: 250px;
   background: #f7f7f9;
   display: flex;
   align-items: center;
 }
 
+.user_profile img {
+  margin-right: 15px;
+}
 .user_profile h5 {
   margin: 0;
+  margin-bottom: 2px;
 }
 .user_profile p {
   margin: 0;
 }
 .user_profile button {
+  margin-left: 45px;
   border: none;
   background: #f7f7f9;
+}
+
+
+@media (max-width: 480px) {
+  .container {
+  width: 480px;
+  height: 900px;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: row;
+}
+.navigation {
+  width: 50px;
+  height: 1520px;
+  background: #f7f7f9;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+}
+.logo h3, .favorites, .user_profile {
+  display: none
+}
+.link {
+  width: 45px;
+}
+.overview:hover,
+.overview.router-link-active,
+.overview.router-link-exact-active {
+  background-image: none;
+}
+
 }
 </style>

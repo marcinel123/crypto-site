@@ -1,7 +1,7 @@
 <template>
   <Suspense>
     <template #default>
-     <MainPage/>
+      <MainPage />
     </template>
     <template #fallback>
       <LoaderPage />
@@ -16,11 +16,7 @@ export default {
   name: "OverViewPage",
   components: {
     LoaderPage,
-    MainPage
+    MainPage,
   },
-
-  
 };
 </script>
-
-<style></style>
