@@ -7,8 +7,14 @@
           <span></span>
           <img src="../../images/bell.png" alt="icon bell" />
         </button>
-        <button class="btn">
+        <button @mouseover="menuOpen" @mouseleave="menuClose" class="btn">
           <img class="btn menu" src="../../images/menu.png" alt="icon menu" />
+          <ul class="dropdown">
+            <li>Sign Up</li>
+            <li>Contact us</li>
+            <li>About us</li>
+            <li>Our clients</li>
+          </ul>
         </button>
       </div>
     </header>
@@ -22,6 +28,19 @@ import UpperSection from "./UpperSection.vue";
 import TabsSection from "./TabsSection.vue";
 export default {
   components: { UpperSection, TabsSection },
+
+  setup(){
+    const menuOpen = ()=>{
+      document.querySelector(".dropdown").style.display = "block"
+    }
+    const menuClose = ()=>{
+      document.querySelector(".dropdown").style.display = "none"
+    }
+
+
+
+    return {menuOpen, menuClose}
+  }
 };
 </script>
 
@@ -103,6 +122,38 @@ export default {
   height: 40px;
   width: 30px;
 }
+
+.dropdown {
+  display: none;
+  margin: 0;
+  margin-left: -40px;
+  padding: 0;
+  list-style: none;
+  background: #f7f7f9;
+  height: 120px;
+width: 80px;
+border-radius: 8px;
+border: 1px solid white;
+}
+
+.dropdown:hover {
+  display: block;
+}
+
+.dropdown li {
+  border-bottom: 1px solid white;
+  box-sizing: border-box;
+  color: #9896A1;
+  padding: 5px;
+  text-align: center;
+  position: relative;
+  height: 30px;
+  width: 100%;
+}
+.dropdown li:hover {
+  border: 1px solid black;
+}
+
 
 
 @media (max-width: 480px) {

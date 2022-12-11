@@ -127,7 +127,8 @@ export default {
 .logo {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 .logo img {
   margin: 10px;
@@ -228,10 +229,11 @@ p {
 }
 .navigation {
   width: 50px;
-  height: 1520px;
+  height: 940px;
   background: #f7f7f9;
   display: flex;
   flex-direction: column;
+  padding-right: 3px;
 }
 .content {
   width: 430px;

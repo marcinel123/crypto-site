@@ -56,10 +56,13 @@ export default {
   margin-top: 25px;
   box-sizing: border-box;
   width: 1040px;
+  max-height: 425px;
   background: #f7f7f9;
   padding: 35px 32px;
+  padding-bottom: 0;
   border: 1px solid #f7f7f9;
   border-radius: 8px;
+  background-image: linear-gradient(#F7F7F9 70%, white);
 }
 
 .tabs_nav {
@@ -102,14 +105,30 @@ export default {
 @media (max-width: 480px) {
   .tabs {
   margin: 0;
-  padding: 0;
-  width: 430px;
-  height: 900px;
+  padding: 5px;
+  width: 100%;
+  height: 330px;
   background: #f7f7f9;
   overflow-x: hidden;
   overflow-y: auto;
   border: none;
   border-radius: none;
+}
+.tabs_nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tabs_menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 }
 </style>

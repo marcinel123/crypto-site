@@ -61,6 +61,7 @@ export default {
       newData();
 
       const chart1 = document.getElementById("myChart");
+      const gradientBg = chart1.create
       // creating new chart
       const newChart = new Chart(chart1, {
         type: "line",
@@ -81,11 +82,11 @@ export default {
             },
             y: {
               ticks: {
-                display: false,
+                display: true,
               },
               grid: {
                 display: true,
-                borderDash: [20, 20],
+                borderDash: [2, 1],
               },
             },
           },
@@ -102,10 +103,11 @@ export default {
           labels: data.map((row) => row.day),
           datasets: [
             {
-              label: "",
+              fill: true,
+              labels: ['5k', 'February', 'March', 'April', 'May', 'June'],
               data: data.map((row) => row.value),
               tension: 0.4,
-              backgroundColor: "linear-gradient(180deg, rgba(116, 69, 251, 0.16) 28.38%, rgba(116, 69, 251, 0) 100%)",
+              borderColor: "#7445FB",
             },
           ],
         },
@@ -120,7 +122,7 @@ export default {
 .first_section {
   display: flex;
   align-items: center;
-  margin-top: 35px;
+  margin-top: 25px;
 }
 .balance {
   box-sizing: border-box;

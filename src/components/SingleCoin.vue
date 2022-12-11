@@ -236,7 +236,7 @@ export default {
   .single_coin {
   box-sizing: border-box;
   padding-left: 20px;
-  width: 100%;
+  width: 430px;
   height: 80px;
   background: #ffffff;
   display: flex;
