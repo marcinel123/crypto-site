@@ -85,6 +85,7 @@ export default {
                 display: false,
               },
               grid: {
+                drawBorder: false,
                 display: false,
               },
             },
@@ -93,6 +94,7 @@ export default {
                 display: false,
               },
               grid: {
+                drawBorder: false,
                 display: false,
               },
             },
@@ -110,16 +112,19 @@ export default {
           labels: data.map((row) => row.day),
           datasets: [
             {
-              label: "",
-              borderColor: "red",
+              
+              borderColor: props.coin.quote.USD.percent_change_30d > 0 ? "#2DC78F" : "#EA4D4D",
               data: data.map((row) => row.value),
               tension: 0.8,
+              borderWidth: 2,
             },
           ],
         },
       });
       newChart2;
-      console.log(newChart2.options.color)
+
+      
+      console.log(newChart2)
     });
     
     return {};
@@ -189,10 +194,10 @@ export default {
 }
 
 .down {
-  color: red;
+  color: #EA4D4D;
 }
 .up {
-  color: green;
+  color: #2DC78F;
 }
 
 .chart {

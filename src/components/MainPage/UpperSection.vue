@@ -60,15 +60,22 @@ export default {
 
       newData();
 
-      const chart1 = document.getElementById("myChart");
-      const gradientBg = chart1.create
+      var chart1 = document.getElementById("myChart").getContext('2d')
+      const gradientBg = chart1.createLinearGradient(0,0,0,400);
+
+      gradientBg.addColorStop(0, "rgba(116, 69, 251, 0.50)")
+      gradientBg.addColorStop(0.2, "rgba(116, 69, 251, 0.16)")
+      gradientBg.addColorStop(0.5, "rgba(116, 69, 251, 0)")
+
+
       // creating new chart
       const newChart = new Chart(chart1, {
         type: "line",
         options: {
           elements: {
                     point:{
-                        radius: 0
+                      hoverRadius: 5,
+                        radius: 1
                     }
                 },
           scales: {
@@ -77,22 +84,33 @@ export default {
                 display: false,
               },
               grid: {
+                drawOnChartArea: false,
+                borderWidth: 0,
+                color: "#f7f7f9",
                 display: false,
+                drawBorder: false,
               },
             },
             y: {
               ticks: {
                 display: true,
+
               },
+              beginAtZero: true,
               grid: {
+                tickBorderDash: [3, 2],
+                drawTicks: false,
+                drawBorder: false,
+                circular: true,
+                color: "#858585",
+                borderWidth: 1,
                 display: true,
-                borderDash: [2, 1],
               },
             },
           },
           plugins: {
             tooltip: {
-              display: false,
+              display: true,
             },
             legend: {
               display: false,
@@ -104,15 +122,23 @@ export default {
           datasets: [
             {
               fill: true,
-              labels: ['5k', 'February', 'March', 'April', 'May', 'June'],
               data: data.map((row) => row.value),
               tension: 0.4,
               borderColor: "#7445FB",
+              backgroundColor: gradientBg,
             },
+            {
+              fill: false,
+              data: data.map((row) => row.value / 1.5),
+              tension: 0.4,
+              borderDash: [6, 4],
+              borderColor: "rgba(133, 133, 133, 0.3)",
+            }
           ],
         },
       });
       newChart;
+      console.log(newChart)
     });
   },
 };
